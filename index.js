@@ -3,7 +3,7 @@ require('@babel/register')({
     [
        "@babel/env",
        {
-         module: false,
+         modules: "commonjs",
          targets: { "node": process.versions.node },
          useBuiltIns: "usage"
        }
@@ -14,13 +14,17 @@ require('@babel/register')({
 const f = () =>{ console.log('arrow function work')}
 f()
 
-const a = {'a': 'a'};
-
-const b = {
-  'b':'b',
-  ...a
-};
-console.log(b)
+{/*
+  * does not work here !!!!
+  *
+  * const a = {'a': 'a'};
+  *
+  * const b = {
+  *   'b':'b',
+  *   ...a
+  * };
+  * console.log(b)
+  */}
 
 class A {
   constructor() {
@@ -29,4 +33,6 @@ class A {
 }
 const k = new A()
 
+// import someScript from  './script-1.js'; // <-- import does not work here but will work in ./script-1.js
+require( './script-1.js')
 
