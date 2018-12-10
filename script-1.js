@@ -6,7 +6,7 @@ f()
 
 const a = {'a': 'a'};
 
-// work here !!!!
+// works here !!!!
 const b = {
   'b':'b',
   ...a

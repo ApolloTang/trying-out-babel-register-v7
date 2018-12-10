@@ -3,9 +3,10 @@ require('@babel/register')({
     [
        "@babel/env",
        {
-         modules: "commonjs",
+         // module: false,      // <--- typo, not module
+         modules: "commonjs",   // <--- must transpile to commonjs module
          targets: { "node": process.versions.node },
-         useBuiltIns: "usage"
+         useBuiltIns: "usage"   // <--- not sure if this work
        }
     ]
   ]
@@ -14,8 +15,9 @@ require('@babel/register')({
 const f = () =>{ console.log('arrow function work')}
 f()
 
-{/*
-  * does not work here !!!!
+ /*
+  * does not work here, but works in the
+  * required file script-1.js
   *
   * const a = {'a': 'a'};
   *
@@ -24,7 +26,7 @@ f()
   *   ...a
   * };
   * console.log(b)
-  */}
+  */
 
 class A {
   constructor() {
